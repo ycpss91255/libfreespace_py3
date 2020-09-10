@@ -756,7 +756,6 @@ def writeDecodeBody(message, fields, outFile):
                         outFile.write("\t\t\ts->%s = %s(&message[%d + offset]);\n" % (field['name'], IntConversionHelper(field['typeDecode']['type']), byteCounter))
                         byteCounter += field['typeDecode']['width']
                     else:
-                        print("fuck",field['typeDecode']['count'])
                         for i in range (field['typeDecode']['count']):
                             outFile.write("\t\t\ts->%s[%d] = %s(&message[%d + offset]);\n" % (field['name'], i, IntConversionHelper(field['typeDecode']['type']), byteCounter))
                             byteCounter += field['typeDecode']['width']
